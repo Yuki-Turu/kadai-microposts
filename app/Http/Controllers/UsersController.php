@@ -12,11 +12,11 @@ class UsersController extends Controller
     {
         // ユーザ一覧をidの降順で取得
         $users = User::orderBy('id', 'desc')->paginate(10);
-
         // ユーザ一覧ビューでそれを表示
         return view('users.index', [
             'users' => $users,
         ]);
+        
     }
     public function show($id)
     {
@@ -88,11 +88,10 @@ class UsersController extends Controller
         
         $user->loadRelationshipCounts();
         
-        $favorites = $user->favorites()->paginate(10);
-        
+        $microposts = $user->favorites()->paginate(10);
         return view('users.favorites',[
             'user' => $user,
-            'users' => $favorites,
+            'microposts' => $microposts,
             ]);
     }
 }
