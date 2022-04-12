@@ -10,5 +10,3 @@
         @endif
     @endif
     
-    {!! Form::open(['route' => ['user.unfollow', $user->id], 'method' => 'delete']) !!}
-            {!! Form::submit('Unfollow', ['class' => "btn btn-danger btn-block"]) !!}
